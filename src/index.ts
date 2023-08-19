@@ -1,7 +1,7 @@
-console.log("hello from index");
+import { makeApp } from "./app.js";
 
-function Hello() {
-  return "hello";
-}
+const PORT = Number(process.env.PORT) || 2222;
 
-export { Hello };
+const server = makeApp(PORT);
+
+console.log("server running on: ", PORT);
