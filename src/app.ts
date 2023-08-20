@@ -6,6 +6,9 @@ import { IAppServices } from "./config/types/interfaces.js";
 //Helps with dependency injection
 function makeApp(services: IAppServices): Server {
   const app = express();
+
+  app.use(services.router);
+
   const listener = app.listen(services.port);
   return listener;
 }
