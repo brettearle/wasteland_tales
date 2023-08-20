@@ -1,11 +1,8 @@
-import express, { Router } from "express";
+import express from "express";
 import { Server } from "http";
 
-function makeApp(port: number, router?: Router): Server {
+function makeApp(port: number): Server {
   const app = express();
-  if (router) {
-    app.use(router);
-  }
   const listener = app.listen(port);
   return listener;
 }
