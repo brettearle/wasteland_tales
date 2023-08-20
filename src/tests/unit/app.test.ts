@@ -3,11 +3,15 @@ import { AddressInfo } from "net";
 import supertest from "supertest";
 
 import { makeApp } from "../../app";
+import { IAppServices } from "../../config/types/interfaces";
 
 describe("Make App Func", () => {
   let app: Server;
+  const testServices: IAppServices = {
+    port: 5678,
+  };
   beforeAll(() => {
-    app = makeApp(5678);
+    app = makeApp(testServices);
   });
   afterAll(() => {
     app.close();

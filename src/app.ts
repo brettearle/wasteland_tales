@@ -1,9 +1,12 @@
 import express from "express";
 import { Server } from "http";
+import { IAppServices } from "./config/types/interfaces.js";
 
-function makeApp(port: number): Server {
+//This is done to be main app builder
+//Helps with dependency injection
+function makeApp(services: IAppServices): Server {
   const app = express();
-  const listener = app.listen(port);
+  const listener = app.listen(services.port);
   return listener;
 }
 
