@@ -4,7 +4,7 @@ import supertest, { SuperTest, Test } from "supertest";
 
 import { makeApp } from "../../app";
 import { makeRouter } from "../../router/makeRouter";
-import { makeDeck } from "../../services/deck/makeDeck";
+import { poker } from "../../services/deck/makeDeck";
 import { IAppServices } from "../../config/types/interfaces";
 
 describe("App", () => {
@@ -46,14 +46,14 @@ describe("App", () => {
 
   describe("/deck route", () => {
     test("GET on /deck route should return status 200", async () => {
-      const got = await testReq.get("/deck");
+      const got = await testReq.get("/deck/npoker");
       expect(got.status).toBe(200);
     });
 
     test("GET on /deck route should return deck", async () => {
-      const res = await testReq.get("/deck");
+      const res = await testReq.get("/deck/npoker");
       const got = res.body;
-      const want = makeDeck();
+      const want = poker.makeDeck();
       expect(got.deck).toStrictEqual(want);
     });
   });

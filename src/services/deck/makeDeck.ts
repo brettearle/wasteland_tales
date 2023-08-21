@@ -1,8 +1,10 @@
-import { ICard } from "../../config/types/interfaces.js";
+import { Deck, IDeck } from "../../config/types/interfaces.js";
 
-const makeDeck = () => {
-  const deck: ICard[] = [{ suit: "clubs", face: "ace" }];
-  return deck;
+const poker: IDeck = {
+  makeDeck: () => {
+    const deck: Deck = [{ suit: "clubs", face: "ace" }];
+    return deck;
+  },
 };
 
-export { makeDeck };
+export { poker };

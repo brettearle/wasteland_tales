@@ -1,11 +1,11 @@
-import { ICard } from "../../config/types/interfaces";
-import { makeDeck } from "../../services/deck/makeDeck";
+import { Deck } from "../../config/types/interfaces";
+import { poker } from "../../services/deck/makeDeck";
 
 describe("makeDeck", () => {
   test("should return a deck object", () => {
-    const got = makeDeck();
+    const got = poker.makeDeck();
     //should test the object structure and length of array
-    const want: ICard[] = [{ suit: "clubs", face: "ace" }];
+    const want: Deck = [{ suit: "clubs", face: "ace" }];
     expect(got).toStrictEqual(want);
   });
 });

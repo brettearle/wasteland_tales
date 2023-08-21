@@ -1,10 +1,11 @@
 import { Router } from "express";
-import { makeDeck } from "../services/deck/makeDeck.js";
+import { poker } from "../services/deck/makeDeck.js";
 
 const deckRouter = Router();
 
-deckRouter.get("/deck", (req, res) => {
-  res.status(200).send({ deck: makeDeck() });
+//new poker deck route
+deckRouter.get("/deck/npoker", (req, res) => {
+  res.status(200).send({ deck: poker.makeDeck() });
 });
 
 export { deckRouter };

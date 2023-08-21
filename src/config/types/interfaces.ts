@@ -6,6 +6,7 @@ export interface IAppServices {
 }
 
 type Suit = "spades" | "hearts" | "diamonds" | "clubs";
+
 type Face =
   | "ace"
   | "two"
@@ -23,4 +24,10 @@ type Face =
 export interface ICard {
   suit: Suit;
   face: Face;
+}
+
+export type Deck = ICard[];
+
+export interface IDeck {
+  makeDeck: () => Deck;
 }
